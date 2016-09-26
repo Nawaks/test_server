@@ -1,0 +1,47 @@
+{
+  "name": "visreg",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "gulp",
+    "dev": "npm run pm2kill && npm run pm2start && gulp watch",
+    "pm2start": "NODE_ENV=development ./node_modules/pm2/bin/pm2 start --name visreg ./index.js --watch",
+    "pm2stop": "./node_modules/pm2/bin/pm2 stop visreg",
+    "pm2kill": "./node_modules/pm2/bin/pm2 kill",
+    "log": "./node_modules/pm2/bin/pm2 logs visreg"
+  },
+  "husky": {
+    "put it in scripts when": "ok",
+    "pre-commit": "grunt tslint",
+    "pre-rebase": "grunt tslint",
+    "pre-push": "grunt tslint"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^3.0.6",
+    "config": "~1.17.1",
+    "delivery": "0.0.4",
+    "github": "^3.0.0",
+    "hapi": "^15.0.0",
+    "hapi-decorators": "^0.4.3",
+    "inert": "^3.2.0",
+    "lodash": "^3.10.1",
+    "moment": "^2.10.6",
+    "nodegit": "^0.14.1",
+    "pm2": "^0.15.10",
+    "querystring": "^0.2.0",
+    "socket.io": "^1.4.8"
+  },
+  "devDependencies": {
+    "gulp": "~3.9.0",
+    "gulp-tslint": "~4.1.0",
+    "gulp-typescript": "~2.9.2",
+    "husky": "~0.10.2",
+    "merge2": "~0.3.6",
+    "mocha": "^2.3.4",
+    "tsd": "~0.6.5",
+    "tslint": "~3.2.0",
+    "typescript": "~2.0.0"
+  }
+}
